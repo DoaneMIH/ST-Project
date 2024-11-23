@@ -1,255 +1,206 @@
-<html>
-    <head>
-        <title>Angelfel | Pharmacy</title>
-        <link href="assets/css/style.css" type="text/css" rel="stylesheet">
-        <link href="assets/css/submenu.css" type="text/css" rel="stylesheet">
-        <script src="assets/js/script.js"  type="text/javascript"></script>
-       <script src="assets/js/jquery.bxslider.min.js"  type="text/javascript"></script>
-       <link href="assets/css/jquery.bxslider.css" type="text/css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>GoMart</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">GoMart</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#receipt">Receipt</a></li>
+      <li><a href="#profile">Profile</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="shopping">
+      <img src="images/shopping-bag.png" alt="shopping-bag">
+      <span class="quantity">0</span>
+    </div>
+  </nav>
 
-    </head>
-    <body>
-        <!-- header begin -->
-        <div class="fixed-header">
-            <div id="header">
-                <a href="index.html"><img class="logo" src="assets/image/logooo.png" ></a>
+  <div class="landingpage">
+    <h1 class="gomart">GoMart</h1>
+    <p>Your one-stop online shopping destination! Discover a world of convenience as you browse, 
+      shop, and buy your favorite products—all in one place. With GoMart, enjoy seamless shopping 
+      experiences, exclusive deals, and a wide range of items to suit every need. Shop smarter, 
+      faster, and better with GoMart today!</p>
+  </div>
 
-                <ul id="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contacts</a></li>
-                </ul>
+  <div class="background"></div>
+  
+  <!-- <div class="card"></div>  -->
 
-            </div>
-            <div class="info">
-                <ul id="product_header">
-                    <li><a href="submenu/medication.html">PRESCRIPTION MEDICATIONS</a></li>
-                    <li><a href="submenu/supplies.html">MEDICAL SUPPLIES</a></li>
-                    <li><a href="submenu/herbal.html">HERBAL SUPPLEMENTS</a></li>
-                    <li><a href="submenu/health care.html">HEALTH CARE PRODUCT</a></li>
-                    <li><a href="submenu/baby.html">BABY AND OTHERS</a></li>
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- header end -->
-        
-        <div class="container">
-        <div class="page">
-                <div class="ads">
-                    <img src="assets/image/ads/1.jpg" />
-                   <img src="assets/image/ads/2.jpg"/>
-                    <img src="assets/image/ads/3.jpg"/>
-                    <img src="assets/image/ads/4.jpg"/>
-                    <img src="assets/image/ads/5.jpg"/>
-                </div>
-        </div>
-        <p id="mark">Home | Deal of the day</p>
-        <img id="deals" src="assets/image/deals.jpg">
+  <!-- <div class="card">
+    <img class="card-image" src="images/dove.jpg" alt="Product Image">
+  <div class="card-content">
+    <h3 class="card-title">Product</h3>
+    <p class="card-description">This is a short description of the card. It can provide additional details
+       about the content or the purpose of the card.</p>
+    <p class="price">15.00</p>
+    <button class="card-button">Buy</button>
+  </div>
+</div> -->
 
-        <!-- <div align="center">  
-            <input type="text" name="search" placeholder="search" id="search" class="form-control" />  
-       </div>  -->
-        <div class="best_prod">
-                <table id="product_table">
-                <thead>
-               <tr>
-                    <th>              </th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-              </tr>
-                </thead>
+<!-- Diri na ga sulod and gina pang ubra nga DIV CARD, title, description -->
+<div id="product-container" class="products"></div> 
 
-                <tbody id="searchTable">
-                  <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/ascorbic.png"></td>
-                    <td>Ascorbic Acid Chewable 500mg 20X1 <br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price"> MRP ₱80.50</p>
-                         <p class="price">₱75.00</p></td>
-                  </tr>
-
-                  <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/ascof.png"></td>
-                    <td>Ascof Forte Menthol 600mg/5ml 120ml Syrup<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱170.50</p>
-                         <p class="price">₱164.50</p></td>
-                  </tr>
-
-                  <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/remedios.png"></td>
-                    <td>Lola Remedios<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱150.00</p>
-                         <p class="price">₱140.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/pregnancy.png"></td>
-                    <td>Clearblue Pregnancy Test<br>&#9733;&#9733;&#9733;&#9733;&#9733;</td>
-                    <td><p class="mrp_price">MRP ₱600.50</p>
-                         <p class="price">₱550.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/gauze.png"></td>
-                    <td>Sterile Gauze Pad 4x4<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱5.50</p>
-                         <p class="price">₱4.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc">  <img id="deals_pic" src="assets/image/dove.png"></td>
-                    <td>Dove Soap Beauty Cream Bar 100g<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱55.50</p>
-                         <p class="price">₱49.50</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc">   <img id="deals_pic" src="assets/image/jonson.png"> </td>
-                    <td>Johnson's Pink Blossom Powder<br>&#9733;&#9733;&#9733;&#9734;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱29.50</p>
-                      <p class="price">₱27.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc">  <img id="deals_pic" src="assets/image/facemask.png"></td>
-                    <td>Face Mask 3D<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>                   
-                    <td><p class="mrp_price">MRP ₱50.50</p>
-                        <p class="price">₱29.75</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/alcohol.png"></td>
-                    <td>cleene 70% Ethyl Alcohol Regular 250ml<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱55.50</p>
-                         <p class="price">₱55.50</p></td>
-                  </tr>
-
-                  <tr>
-                    <td class="imgbgc">  <img id="deals_pic" src="assets/image/oilatum.png"></td>
-                    <td>Oilatum Bar Soap 100g<br>&#9733;&#9733;&#9733;&#9734;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱252.00</p>
-                           <p class="price">₱201.00</p></td>
-                  </tr>
-
-                  <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/whisper.png"></td>
-                    <td>Whisper Skin Love All Night Ultra Slim with Wings<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱104.00</p>
-                         <p class="price">₱78.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc">  <img id="deals_pic" src="assets/image/advil.png"></td>
-                    <td>Advil Liquigel Softgel Capsul -20s<br>&#9733;&#9733;&#9733;&#9733;&#9734; </td>
-                    <td><p class="mrp_price">MRP ₱170.00</p>
-                        <p class="price">₱165.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc">  <img id="deals_pic" src="assets/image/biogesic.png"></td>
-                    <td>Biogesic 500mg Caplet - 20s<br>&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱75.50</p>
-                        <p class="price">₱70.00</p></td>
-                  </tr>
-
-                   <tr>
-                    <td class="imgbgc"> <img id="deals_pic" src="assets/image/gillete.png"></td>
-                    <td>Gillette Foamy Lime Shaving Cream 50g<br>&#9733;&#9733;&#9733;&#9734;&#9734;</td>
-                    <td><p class="mrp_price">MRP ₱122.50</p>
-                         <p class="price">₱122.00</p></td>
-                  </tr>
-                </tbody>
-              </table>
+  <div class="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-amount">Total: $0.00</p>
+</div>
 
 
-        </div>
+<script>
 
-            <div class="description">
-                <hr><br><br>
-                <p><b>Searching for prescription drugs and medical supplies online at Angelfel Pharmacy.</b><br>
-                    Angelfel is currently accessible online! Access a variety of products easily through our online pharmacy. You may easily access and browse our online catalog of pharmaceutical necessities using a laptop or a mobile device anytime, anyplace as long as you have an internet connection (Wi-Fi or data). We provide a wide range of readily available food, personal care, and pharmaceutical products, both on a prescription and over-the-counter basis, at Angelfel.
-                    </p><br>
-                <p><b>Discover Our Vast Range of Brands & Products. </b><br>
-                    Additionally, Angelfel sells products under many brands, such as COVID-19 and first-aid supplies like adhesive bandage plastic strips, medical tape, gauze bandages, ear savers, and washable adult face masks. Bathroom essentials including cotton buds, baby wipes, facial tissue, hand soap, dishwashing liquid, bathroom tissue rolls, headbands, bath puffs, and bath mitts are among the other things you'll need around the house. Under our housebrand, additional medical tests or monitoring kits are also offered, such as digital thermometers, pregnancy tests, and automatic blood pressure monitors, among other things. Other personal equipment are also accessible, such as nebulizers, reading glasses, and abdominal binders.
-                </p><br>
-                <p>We also offer Maxicare Health Cards that can fit your budget for emergency coverage of medical needs.</p><br>
-                <p><b><i>You can rely on Angelfel Pharmacy.</i></b></p><br>
-                <p>Angelfel is always committed to reliable and accessible customer service. </p><br>
-                <p><i>Your health and well-being are our top priorities. To help you achieve the best possible health outcomes, our skilled staff is committed to offering excellent services and products with a focus on you as an individual. </i></p>
-            </div>
-         </div>             
+  document.addEventListener("DOMContentLoaded", () => {   
+  const productContainer = document.getElementById("product-container"); //Placehorder for the products
+  const cartContainer = document.querySelector(".cart");
+  const openShopping = document.querySelector(".shopping img");
+  const cartCounter = document.querySelector(".shopping .quantity");
+  let cart = [];  //Array to store the item sa Cart
 
-            
-       
+  openShopping.addEventListener("click", () => {
+    cartContainer.classList.toggle("active");
+  });
 
-            <script>
-                $(document).ready(function(){
-                    $('.ads').bxSlider({
-                    auto: true,
-                    });
-                    
-                });
+  // Fetch the product from API
+  async function fetchProducts() {
+    try {
+      const dummyJsonResponse = await fetch("https://dummyjson.com/products");  //FETCH sa 1st nga API
+      const dummyJsonData = await dummyJsonResponse.json();
 
+      const fakestoreResponse = await fetch("https://fakestoreapi.com/products");   //FETCH sa 2nd nga API
+      const fakestoreData = await fakestoreResponse.json();
 
-              
-            </script>
-        
+      const combinedProducts = [  //gin sulod sa array nga "combinedProducts" and 2 ka API
+        ...dummyJsonData.products,  //Get the all the product of 1st API
+        ...fakestoreData.slice(0, 30), // Limit the Second API into 20 products Onleh
+      ];
 
+      //Pag render kang Product nga ara sa Array combinedProducts
+      renderProducts(combinedProducts);   //Function Called renderProduct
 
-        <div class="aboutfooter">
-            <div class="servicesfooterfooter-left">
-                   <h3 class="servicesfooterhr" >Angelfel <span class="servicesfooter-span">Pharmacy</span></h3>
+      //ERROR HANDLING MOMINTS
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+      productContainer.innerHTML = "<p>Error loading products. Try again later.</p>";
+    }
+  }
 
-                   <p class="footer-links">
-                       <a href="index.html">Home</a>
-                       |
-                       <a href="about.html">About Us</a>
-                       |
-                       <a href="services.html">Services</a>
-                       |
-                       <a href="contact.html">Contacts</a>
-                   </p>
+function renderProducts(products) {
+  productContainer.innerHTML = ""; // Clear container
+  products.forEach((product) => {   //1. sa kada product
+    const productCard = document.createElement("div"); //2. ga create new div nga
+    productCard.classList.add("card"); //3. May classNAME ".card"
 
-                   <p class="footer-company-name">Copyright &copy; 2023 <strong>Angelfel Pharmacy</strong> All rights reserved</p>
-               </div>
+    //gina kuha ang insakto nga image URL base sa availability 
+    const imageUrl = product.thumbnail || product.image || product.images?.[0] || "placeholder.jpg";
 
-               <div class="servicesfooterfooter-center">
-                   <div>
-                       <img src="assets/image/flocation.png" class="icon" alt="">
-                       <p>Purok 3, Real St., San Joaquin, Iloilo<br>
-                           Purok 5, San Joaquin, Iloilo<br>
-                           Brgy. Inawangan, San Joaquin, Iloilo</p>
-                   </div>
+    //sulod sang class "card" 
+    productCard.innerHTML = `
+      <img class="card-image" src="${imageUrl}" alt="${product.title}">
+      <div class="card-content">
+        <h3 class="card-title">${product.title}</h3>
+        <p class="card-description">${product.description || "No description available"}</p>
+        <p class="price">$${product.price}</p>
+        <button class="card-button" data-title="${product.title}" data-price="${product.price}" data-image="${imageUrl}">Add to Cart</button>
+      </div>
+    `;
 
-                   <div>
-                      <img src="assets/image/ftelephone.png" class="icon" alt="">
-                       <p>+639-185-2099-26 <br>
-                           +639-102-6363-42</p>
-                   </div>
+      //gina dugang sa sulod kang productContainer and tanan nga card
+    productContainer.appendChild(productCard);
+  });
 
-                   <div>
-                      <img src="assets/image/femail.png" class="icon" alt="">
-                       <p><a href="#">angelfelpharmacy@gmail.com</a></p>
-                   </div>
-               </div>
+  // Add Event Listeners for Buttons
+  document.querySelectorAll(".card-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const { title, price, image} = event.target.dataset;  //gina kuha ang TITLE kag PRICE nga halin sa DATASET or sa API
+      addToCart(title, parseFloat(price), image);    //Calling the addToCart function
+    });
+  });
+}
 
-               <div class="servicesfooterfooter-right">
-                   <p class="footer-company-about">
-                       <span>About the company</span>
-                       <strong>Angelfel Pharmacy|</strong> We prioritize your health and well-being. Our knowledgeable staff is committed to providing personalized care and quality products to help you achieve optimal health outcomes.
-                   </p>
+  // Add to Cart  FUNCTION
+  function addToCart(title, price, image) {
+    const existingItem = cart.find((item) => item.title === title);   //para ma lantaw kung ara na sa cart
+    if (existingItem) {
+      existingItem.quantity++;    //kung ara na ang item dugangan lang ang quatity
+    } else {
+      cart.push({image, title, price, quantity: 1 }); //kung wala pa eh dugangan ang cart
+    }
+    updateCartCounter();
+    renderCart(); //Calling the function rendercart
+  }
 
-                 
-               </div>
-       </div>
-    </body>
+  // Render Cart or LOAD THE CART
+  function renderCart() {
+    const cartItems = document.getElementById("cart-items");    //Placeholder para sa listahan sa cart items
+    const totalAmount = document.getElementById("total-amount");  //for the totalAmount kang ara sa Cart
+
+    cartItems.innerHTML = "";   //Clear cart items
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const cartItem = document.createElement("li");    //nag ubra bag o nga list NOTE WAAY NI SIYA "ID" or "CLASS". "<li>" lang gid
+      //diri ga multiply products and ga remove product through button NOTE: Pwede na di designan po  
+      cartItem.innerHTML = `
+        <img class="img-cart" src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+        ${item.title} - ₱${item.price.toFixed(2)} X 
+        <button onclick = "updateQuantity (${index}, -1)"> - </button> 
+        ${item.quantity} <button onclick = "updateQuantity (${index}, 1)"> + </button>
+        <button onclick="removeFromCart(${index})">Remove</button>    
+      `;
+      cartItems.appendChild(cartItem);  //Add the item in the cart
+      total += item.price * item.quantity;  //Total 
+    });
+
+    totalAmount.textContent = `Total: $${total.toFixed(2)}`;  //Namean kang Fixed(2) is duha lang ka decimal
+  }
+
+  //Update the Cart
+  window.updateQuantity = function(index, change){
+    if (cart[index].quantity + change > 0){
+      cart[index].quantity += change;
+    } else {
+      cart.splice(index, 1);
+    }
+    updateCartCounter();
+    renderCart();
+  }
+
+  function updateCartCounter(){
+    cartCounter.textContent = cart.length;
+  }
+
+  // Remove from Cart
+  window.removeFromCart = function (index) {
+    cart.splice(index, 1);   //gina kakas ang item sa cart
+    renderCart();            //Update ang cart 
+  };
+
+  // Initialize fetch function 
+  fetchProducts();
+});
+
+</script>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
 </html>
-
-
-
-
-
-
-
-        
