@@ -20,7 +20,7 @@ if (isset($_SESSION['user_email'])) {
 
     // If user_id is found, fetch their receipts
     if ($user_id) {
-        // Query to fetch receipts for the logged-in user (without receipt date)
+        // Query to fetch receipts for the logged-in user
         $receipt_stmt = $conn->prepare("SELECT receipt_product, receipt_total FROM receipt WHERE user_id = ?");
         $receipt_stmt->bind_param("i", $user_id);
         $receipt_stmt->execute();

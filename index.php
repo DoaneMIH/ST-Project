@@ -30,6 +30,7 @@
       <img src="images/shopping-bag.png" alt="shopping-bag">
       <span class="quantity">0</span>
     </div>
+    <a href="login.php" class="logout-btn">Logout</a>
   </nav>
 
   <div class="landingpage">

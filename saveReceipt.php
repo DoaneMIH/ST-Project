@@ -1,8 +1,8 @@
 <?php
 header('Content-Type: application/json');
 
-$input = file_get_contents('php://input');
-$data = json_decode($input, true);
+$input = file_get_contents('php://input');  //kuhaon ang gin stringify
+$data = json_decode($input, true);  //sulod sa data
 
 if (!$data || !isset($data['user_id'], $data['receipt_product'], $data['receipt_total'])) {
     echo json_encode(['success' => false, 'message' => 'Invalid input.']);

@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); //start session
 require 'database.php';
 
 if (isset($_SESSION['user_email'])) {
@@ -9,12 +9,11 @@ if (isset($_SESSION['user_email'])) {
     if (!$conn) {
         die("<script>console.error('Database connection failed');</script>");
     }
-
+    //Select user id from email nga naka login
     $stmt = $conn->prepare("SELECT user_id FROM user WHERE user_email = ?");
     if (!$stmt) {
         die("<script>console.error('Prepare statement failed');</script>");
     }
-
     $stmt->bind_param("s", $user_email);
     $stmt->execute();
     $stmt->bind_result($user_id);
@@ -62,6 +61,7 @@ if (isset($_SESSION['user_email'])) {
     <img src="images/shopping-bag.png" alt="shopping-bag">
     <span class="quantity">0</span>
   </div>
+  <a href="login.php" class="logout-btn">Logout</a>
 </nav>
 
 <div class="landingpage">
@@ -69,8 +69,9 @@ if (isset($_SESSION['user_email'])) {
   <p>Your one-stop online shopping destination! Discover a world of convenience...</p>
 </div>
 
+<!-- Here ma store ang mga data from API -->
 <div class="background"></div>
-<div id="product-container" class="products"></div>
+<div id="product-container" class="products"></div>   
 
 <div class="cart">
   <h2>Your Cart</h2>
@@ -83,7 +84,7 @@ if (isset($_SESSION['user_email'])) {
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {   
-    const productContainer = document.getElementById("product-container");
+    const productContainer = document.getElementById("product-container");  //placeholder for the product
     const cartContainer = document.querySelector(".cart");
     const openShopping = document.querySelector(".shopping img");
     const cartCounter = document.querySelector(".shopping .quantity");
@@ -107,22 +108,27 @@ if (isset($_SESSION['user_email'])) {
           ...fakestoreData.slice(0, 30), // Limit the 2nd API to 30 products
         ];
         
-        // Render products in the DOM
+        // Render products 
         renderProducts(combinedProducts);
+
+        //Handling error momints
       } catch (error) {
         console.error("Failed to fetch products:", error);
         productContainer.innerHTML = "<p>Error loading products. Try again later.</p>";
       }
     }
 
+    //Function renderProducts sang API
     function renderProducts(products) {
-      productContainer.innerHTML = "";
-      products.forEach((product) => {
-        const productCard = document.createElement("div");
-        productCard.classList.add("card");
+      productContainer.innerHTML = "";  //eh Clear and container
+      products.forEach((product) => {   //for everyproduct
+        const productCard = document.createElement("div");  //ga create new div nga ang
+        productCard.classList.add("card");  //class name is card
 
+        //gina kuha ang insakto nga image URL base sa availability kay iban nga api ang image sa sulod sulod pagid
         const imageUrl = product.thumbnail || product.image || product.images?.[0] || "placeholder.jpg";
 
+        //what is inside the CLASS 'card'
         productCard.innerHTML = `
           <img class="card-image" src="${imageUrl}" alt="${product.title}">
           <div class="card-content">
@@ -132,26 +138,30 @@ if (isset($_SESSION['user_email'])) {
             <button class="card-button" data-title="${product.title}" data-price="${product.price}" data-image="${imageUrl}">Add to Cart</button>
           </div>
         `;
+
+        //gina dugang sa sulod kang productContainer and tanan nga card
         productContainer.appendChild(productCard);
       });
 
+      // Add Event Listeners for Buttons
       document.querySelectorAll(".card-button").forEach((button) => {
         button.addEventListener("click", (event) => {
-          const { title, price, image } = event.target.dataset;
-          addToCart(title, parseFloat(price), image);
+          const { title, price, image } = event.target.dataset; //gina kuha ang TITLE kag PRICE nga halin sa DATASET or sa API
+          addToCart(title, parseFloat(price), image); //Calling the addToCart function
         });
       });
     }
 
-    function addToCart(title, price, image) {
+    // Add to Cart  FUNCTION
+    function addToCart(title, price, image) {   //para ma lantaw kung ara na sa cart
       const existingItem = cart.find((item) => item.title === title);
       if (existingItem) {
-        existingItem.quantity++;
+        existingItem.quantity++;    //kung ara na ang item dugangan lang ang quatity
       } else {
-        cart.push({ image, title, price, quantity: 1 });
+        cart.push({ image, title, price, quantity: 1 });  //kung wala pa eh dugangan ang cart
       }
-      updateCartCounter();
-      renderCart();
+      updateCartCounter();  //update anf cart counter
+      renderCart();   //calling the function rendercart
 
        // SweetAlert kung mag add to cart ang user kag makadto sa cart
       Swal.fire({
@@ -161,16 +171,17 @@ if (isset($_SESSION['user_email'])) {
         confirmButtonText: 'Go to Cart'
       });
     }
-
+    //Render Cart or eh LOAD ANG CART
     function renderCart() {
-      const cartItems = document.getElementById("cart-items");
-      const totalAmount = document.getElementById("total-amount");
+      const cartItems = document.getElementById("cart-items");  //Placeholder para sa listahan sa cart items
+      const totalAmount = document.getElementById("total-amount");  //for the totalAmount kang ara sa Cart
 
-      cartItems.innerHTML = "";
+      cartItems.innerHTML = "";   //Clear cart items
       let total = 0;
 
       cart.forEach((item, index) => {
-        const cartItem = document.createElement("li");
+        const cartItem = document.createElement("li");  //nag ubra bag o nga list NOTE WAAY NI SIYA "ID" or "CLASS". "<li>" lang gid
+        //diri ga multiply products and ga remove product through button
         cartItem.innerHTML = `
           <img class="img-cart" src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
           ${item.title} - ₱${item.price.toFixed(2)} X 
@@ -178,29 +189,31 @@ if (isset($_SESSION['user_email'])) {
           ${item.quantity} <button class="quantity-btn plus-btn" onclick="updateQuantity(${index}, 1)"> + </button>
           <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
         `;
-        cartItems.appendChild(cartItem);
-        total += item.price * item.quantity;
+        cartItems.appendChild(cartItem);  //add the item in the cart
+        total += item.price * item.quantity;  //Total
       });
 
-      totalAmount.textContent = `Total: $${total.toFixed(2)}`;
+      totalAmount.textContent = `Total: $${total.toFixed(2)}`;  //Namean kang Fixed(2) is duha lang ka decimal
     }
 
     // Checkout button functionality
     document.getElementById("checkout-button").addEventListener("click", () => {
       const userId = window.userId;  // Use the userId passed from PHP to JS
 
+      //kung wala ang id 
       if (!userId) {
         alert("User ID is not available. Please log in first.");
         return;
       }
 
+      //first nga ara sa array nga cart lang 
       const firstProduct = cart[0];
       const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
       fetch("saveReceipt.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        body: JSON.stringify({  //eh sulod ang User ID sa JSON para ma fetch
           user_id: userId,
           receipt_product: firstProduct.title,
           receipt_total: total,
