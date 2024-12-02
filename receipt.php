@@ -45,8 +45,13 @@ if (isset($_SESSION['user_email'])) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<?php 
+    require 'navbar.php';
+?>
+
     <h1>Your Receipts</h1>
     
+
     <?php if (isset($user_id)): ?>
         <?php if ($receipt_stmt->num_rows > 0): ?>
             <table>
